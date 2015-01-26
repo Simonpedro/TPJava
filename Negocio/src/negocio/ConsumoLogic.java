@@ -15,6 +15,17 @@ public class ConsumoLogic extends NegocioLogic {
 	public ArrayList<Consumo> getAll(){
 		return daoConsumo.getAll();
 	}
+	
+	public Consumo getOne(char letra) {
+		ArrayList<Consumo> consumos = this.getAll();
+		Consumo c = null;
+		for (Consumo consumo : consumos) {
+			if (consumo.getLetraConsumo() == letra) {
+				c = consumo;
+			}
+		}
+		return c;
+	}
 
 	
 }
