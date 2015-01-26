@@ -28,7 +28,7 @@ public class Electrodomestico {
 		this.peso = peso;
 	}
 	public String getDescripcion() {
-		return descripcion;
+		return descripcion!=null?descripcion:"-";
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
@@ -48,6 +48,17 @@ public class Electrodomestico {
 	
 	public double precioFinal(Peso_Precio pesoPrecio) {
 		return this.precioBase+this.consumo.getPrecio()+pesoPrecio.getPrecio();
+	}
+	
+	public String getDetalle() {
+		String str;
+		if(this instanceof Lavarropas){
+			str= "Carga: "+((Lavarropas)this).getCarga();
+		}
+		else {
+			str = ((Televisor)this).getResolucion() + "'' tdt: "+ (((Televisor)this).isTdt()?"Si":"No");
+		}
+		return str;
 	}
 	
 }
