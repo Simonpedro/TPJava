@@ -6,9 +6,9 @@ import javax.swing.table.AbstractTableModel;
 
 import entidades.Consumo;
 import entidades.Electrodomestico;
-import entidades.Lavarropas;
+
 import entidades.Peso_Precio;
-import entidades.Televisor;
+
 
 public class MyTableModel extends AbstractTableModel{
 	
@@ -62,16 +62,7 @@ public class MyTableModel extends AbstractTableModel{
 		case 3: return elec.getPeso();
 		case 4: return elec.getColor();
 		case 5: return elec.getConsumo();
-		case 6: {
-			String str;
-			if(elec instanceof Lavarropas){
-				str= "Carga: "+((Lavarropas)elec).getCarga();
-			}
-			else {
-				str = ((Televisor)elec).getResolucion() + "'' tdt: "+ (((Televisor)elec).isTdt()?"Si":"No");
-			}
-			return str;
-		}
+		case 6: return elec.getDetalle();
 		case 7: return elec.getDescripcion();
 		default: return "Columna no usada todavia";
 			
